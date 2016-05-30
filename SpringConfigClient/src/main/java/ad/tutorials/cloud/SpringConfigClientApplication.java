@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpringConfigClientApplication {
 
     @Value("${test.name}")
-    private String nameConfig;
+    private String nameConfig = "N/A";
 
     // ========================================================================
 
     @RequestMapping("/")
     public String home() {
-        return "Hello my name is" + nameConfig;
+        return "Hello my name is: " + nameConfig;
     }
 
     public static void main(String[] args) {

@@ -1,4 +1,9 @@
+server:
+  port: 8888
+
 spring:
+  config:
+    name: configserver
   profiles:
     active: native
 
@@ -7,9 +12,9 @@ spring:
       server:
         native:
           search-locations:
-            classpath:/test-config-repo/{application},
-            classpath:/test-config-repo/{application}/{profile}/{label},
-            classpath:/test-config-repo/{profile}/{label}
+            classpath:/test-config-repo/,
+            classpath:/test-config-repo/{profile}/,
+            classpath:/test-config-repo/{profile}/{label}/
 
 
 

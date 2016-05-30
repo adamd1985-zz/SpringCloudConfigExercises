@@ -7,7 +7,6 @@ spring:
       server:
         native:
           search-locations:
-            classpath:/test-config-repo/,
             classpath:/test-config-repo/{application},
             classpath:/test-config-repo/{application}/{profile}/{label},
             classpath:/test-config-repo/{profile}/{label}

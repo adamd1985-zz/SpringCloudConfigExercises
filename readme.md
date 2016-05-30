@@ -168,7 +168,7 @@ spring:
  }
  ```
  
- #### Config Server
+#### Config Client
 
 Wiring in spring cloud via dependencies:
 ```xml

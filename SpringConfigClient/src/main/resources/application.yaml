@@ -7,5 +7,9 @@ spring:
     cloud:
       config:
         uri: http://localhost:8888
-
+        name: SpringConfigClient
+        profile: profiles
+        label: label
+    profiles:
+      active: profiles
 

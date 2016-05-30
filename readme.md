@@ -167,6 +167,58 @@ spring:
     }
  }
  ```
+ 
+ #### Config Server
+
+Wiring in spring cloud via dependencies:
+```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-config</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+```
+
+Note that the __spring-boot-starter-actuator__ and its actuators are required if you wish to check *env*.
+
+With __spring-cloud-starter-config__ it will by default attempt to connect to a config 
+server using: __http://localhost:8888/__
+
+To configure the client:
+```yaml
+server:
+  port: 8080
+
+spring:
+    application:
+      name: SpringConfigClient
+    cloud:
+      config:
+        uri: http://localhost:8888
+        name: SpringConfigClient
+        profile: profiles
+        label: label
+    profiles:
+      active: profiles
+```
+
+The client can configure how to access the config server:
+* __spring.application.name__ is the same as __spring.cloud.config.name__. By default it will always take application name.
+* __spring.application.profiles.active__ is the same as __spring.cloud.config.profile__. By default it will take any active profile.
 
 ## References
 

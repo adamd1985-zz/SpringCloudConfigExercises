@@ -220,7 +220,21 @@ The client can configure how to access the config server:
 * __spring.application.name__ is the same as __spring.cloud.config.name__. By default it will always take application name.
 * __spring.application.profiles.active__ is the same as __spring.cloud.config.profile__. By default it will take any active profile.
 
+### 2: Pulling configurations from GIT
+
+Alter Server configuration to include this:
+```yaml
+# ${user.dir} points to the base directory you are running from.
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///${user.dir}/SpringConfigServer/src/main/resources/test-git-repo
+```
+
+Note that we still follow the "native" approach, though through the use of a local GIT remote.
+
 ## References
 
 * [Spring official configuration documentation](http://cloud.spring.io/spring-cloud-static/spring-cloud.html) 
-````
+* [Cloud workshop](https://github.com/spencergibb/cloud-native-workshop)

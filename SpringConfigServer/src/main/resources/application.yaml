@@ -4,17 +4,12 @@ server:
 spring:
   config:
     name: configserver
-  profiles:
-    active: native
 
+# ${user.dir} points to the base directory you are running from.
   cloud:
     config:
       server:
-        native:
-          search-locations:
-            classpath:/test-config-repo/,
-            classpath:/test-config-repo/{profile}/,
-            classpath:/test-config-repo/{profile}/{label}/
-
+        git:
+          uri: file:///${user.dir}/SpringConfigServer/src/main/resources/test-git-repo
 
 
